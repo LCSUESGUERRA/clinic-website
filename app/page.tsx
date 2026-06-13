@@ -337,11 +337,11 @@ export default function Home() {
 
 <div className="grid md:grid-cols-3 gap-8">
 
-  <div className="bg-white rounded-3xl overflow-hidden shadow-lg">
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
     <img
       src="/images/gallery1.jpg"
       alt="Before and After"
-      className="w-full h-[350px] object-cover"
+      className="w-full h-[220px] md:h-[320px] object-cover"
     />
 
     <div className="p-6">
@@ -355,11 +355,11 @@ export default function Home() {
     </div>
   </div>
 
-  <div className="bg-white rounded-3xl overflow-hidden shadow-lg">
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
     <img
       src="/images/gallery1.jpg"
       alt="Before and After"
-      className="w-full h-[350px] object-cover"
+      className="w-full h-[220px] md:h-[320px] object-cover"
     />
 
     <div className="p-6">
@@ -373,11 +373,11 @@ export default function Home() {
     </div>
   </div>
 
-  <div className="bg-white rounded-3xl overflow-hidden shadow-lg">
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
     <img
       src="/images/gallery1.jpg"
       alt="Before and After"
-      className="w-full h-[350px] object-cover"
+      className="w-full h-[220px] md:h-[320px] object-cover"
     />
 
     <div className="p-6">
