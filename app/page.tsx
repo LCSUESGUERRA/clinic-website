@@ -259,7 +259,7 @@ export default function Home() {
       Patient Testimonials
     </h2>
 
-    <div className="grid md:grid-cols-3 gap-8">
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
 
       <div className="bg-white p-8 rounded-3xl shadow-sm">
         <p className="text-gray-600 mb-6">
@@ -335,13 +335,13 @@ export default function Home() {
   Before & After Results
 </h2>
 
-<div className="grid md:grid-cols-3 gap-8">
+<div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
 
-  <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
     <img
       src="/images/gallery1.jpg"
       alt="Before and After"
-      className="w-full h-[220px] md:h-[320px] object-cover"
+      className="w-full h-[180px] md:h-[250px] object-cover"
     />
 
     <div className="p-6">
@@ -355,11 +355,11 @@ export default function Home() {
     </div>
   </div>
 
-  <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
     <img
       src="/images/gallery1.jpg"
       alt="Before and After"
-      className="w-full h-[220px] md:h-[320px] object-cover"
+      className="w-full h-[180px] md:h-[250px] object-cover"
     />
 
     <div className="p-6">
@@ -373,11 +373,11 @@ export default function Home() {
     </div>
   </div>
 
-  <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
     <img
       src="/images/gallery1.jpg"
       alt="Before and After"
-      className="w-full h-[220px] md:h-[320px] object-cover"
+      className="w-full h-[180px] md:h-[250px] object-cover"
     />
 
     <div className="p-6">
