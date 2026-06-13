@@ -13,7 +13,7 @@ export default function Home() {
   {/* Your Existing Background Effects */}
   <div className="absolute top-20 right-20 w-96 h-96 bg-[#e9ddc8] rounded-full blur-3xl opacity-50"></div>
   <div className="absolute bottom-10 left-10 w-80 h-80 bg-[#f0e8db] rounded-full blur-3xl opacity-50"></div>
-  <div className="absolute top-0 right-0 w-[500px] h-[500px] border border-[#d9c9b2] rounded-full opacity-30"></div>
+  <div className="hidden md:block absolute top-0 right-0 w-[500px] h-[500px] border border-[#d9c9b2] rounded-full opacity-30"></div>
   <div className="absolute top-20 right-20 w-[400px] h-[400px] border border-[#d9c9b2] rounded-full opacity-20"></div>
 
   {/* Hero Text */}
@@ -23,7 +23,7 @@ export default function Home() {
       PREMIUM AESTHETIC CLINIC
     </p>
 
-    <h1 className="text-6xl md:text-8xl font-bold mb-6">
+    <h1 className="text-4xl md:text-8xl font-bold mb-6 leading-tight">
       Reveal Your Most Confident Self
     </h1>
 
@@ -48,7 +48,7 @@ export default function Home() {
   </div>
 
   {/* Hero Image */}
-  <div className="relative w-screen h-[800px] left-1/2 -translate-x-1/2 overflow-hidden">
+  <div className="relative w-full h-[500px] md:h-[800px] overflow-hidden">
 
   <Image
     src="/images/hero.jpg"
@@ -123,7 +123,7 @@ export default function Home() {
         </div>
       </section>
       <section className="relative py-24 bg-[#f8f5f0] overflow-hidden">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[700px] border border-[#d9c9b2] rounded-full opacity-10"></div>
+        <div className="hidden md:block absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[700px] border border-[#d9c9b2] rounded-full opacity-10"></div>
 
 <div className="absolute bottom-0 right-0 w-80 h-80 bg-[#e9ddc8] rounded-full blur-3xl opacity-20"></div>
   <div className="max-w-4xl mx-auto px-8">
@@ -298,11 +298,11 @@ export default function Home() {
 
   </div>
 </section>
-<section className="relative py-32 bg-[#f8f5f0] overflow-hidden">
+<section className="relative py-20 md:py-32 bg-[#f8f5f0] overflow-hidden">
   <div className="absolute top-0 right-0 w-[500px] h-[500px] border border-[#d9c9b2] rounded-full opacity-30"></div>
   <div className="max-w-7xl mx-auto px-8">
 
-    <section className="py-32 bg-black text-white">
+    <section className="py-20 md:py-32 bg-black text-white rounded-3xl">
 
   <div className="max-w-5xl mx-auto text-center px-8">
 
@@ -310,7 +310,7 @@ export default function Home() {
       PREMIUM AESTHETIC EXPERIENCE
     </p>
 
-    <h2 className="text-5xl md:text-6xl font-bold mb-8">
+    <h2 className="text-4xl md:text-6xl font-bold mb-8 leading-tight">
       Ready To Begin Your Transformation?
     </h2>
 
@@ -331,7 +331,7 @@ export default function Home() {
 
 </div>
 
-    <h2 className="text-5xl font-bold text-center mt-20 mb-40">
+    <h2 className="text-4xl md:text-5xl font-bold text-center mt-20 mb-16">
   Before & After Results
 </h2>
 
