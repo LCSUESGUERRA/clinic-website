@@ -335,60 +335,75 @@ export default function Home() {
   Before & After Results
 </h2>
 
-<div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+<div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
 
-  <div className="bg-white rounded-3xl overflow-hidden shadow-lg">
+  {/* Card 1 */}
+  <div className="bg-white rounded-3xl overflow-hidden shadow-lg hover:-translate-y-2 hover:shadow-xl transition duration-300">
+
     <img
       src="/images/gallery1.jpg"
-      alt="Before and After"
-      className="w-full h-[220px] object-cover"
+      alt="Skin Rejuvenation"
+      className="w-full h-[300px] object-cover"
     />
 
-    <div className="p-6">
-      <h3 className="text-xl font-semibold mb-2">
+    <div className="p-6 text-center">
+
+      <h3 className="text-2xl font-semibold mb-3">
         Skin Rejuvenation
       </h3>
 
       <p className="text-gray-600">
         Visible improvements after treatment.
       </p>
+
     </div>
+
   </div>
 
-  <div className="bg-white rounded-3xl overflow-hidden shadow-lg">
+  {/* Card 2 */}
+  <div className="bg-white rounded-3xl overflow-hidden shadow-lg hover:-translate-y-2 hover:shadow-xl transition duration-300">
+
     <img
       src="/images/gallery1.jpg"
-      alt="Before and After"
-      className="w-full h-[220px] object-cover"
+      alt="Laser Treatment"
+      className="w-full h-[300px] object-cover"
     />
 
-    <div className="p-6">
-      <h3 className="text-xl font-semibold mb-2">
+    <div className="p-6 text-center">
+
+      <h3 className="text-2xl font-semibold mb-3">
         Laser Treatment
       </h3>
 
       <p className="text-gray-600">
         Visible improvements after treatment.
       </p>
+
     </div>
+
   </div>
 
-  <div className="bg-white rounded-3xl overflow-hidden shadow-lg">
+  {/* Card 3 */}
+  <div className="bg-white rounded-3xl overflow-hidden shadow-lg hover:-translate-y-2 hover:shadow-xl transition duration-300">
+
     <img
       src="/images/gallery1.jpg"
-      alt="Before and After"
-      className="w-full h-[220px] object-cover"
+      alt="Acne Scar Treatment"
+      className="w-full h-[300px] object-cover"
     />
 
-    <div className="p-6">
-      <h3 className="text-xl font-semibold mb-2">
+    <div className="p-6 text-center">
+
+      <h3 className="text-2xl font-semibold mb-3">
         Acne Scar Treatment
       </h3>
 
       <p className="text-gray-600">
         Visible improvements after treatment.
       </p>
+
     </div>
+
   </div>
 
 </div>
