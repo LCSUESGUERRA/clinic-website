@@ -102,15 +102,15 @@ if (!confirmed) return;
     router.push("/appointment/success");
 
   } catch (error) {
-    console.error(
-      "Error saving appointment:",
-      error
-    );
+  console.error(error);
 
-    alert(
-      "Failed to submit appointment."
-    );
-  }
+  alert(
+    "Error: " +
+    (error instanceof Error
+      ? error.message
+      : JSON.stringify(error))
+  );
+}
 };
   return (
     <main>

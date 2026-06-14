@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import emailjs from "@emailjs/browser";
 import {
   collection,
   getDocs,
@@ -36,6 +37,12 @@ const [loading, setLoading] = useState(true);
   status: string
 ) => {
   try {
+    const appointment = appointments.find(
+      (a) => a.id === id
+    );
+
+    if (!appointment) return;
+
     const appointmentRef = doc(
       db,
       "appointments",
@@ -45,11 +52,51 @@ const [loading, setLoading] = useState(true);
     await updateDoc(appointmentRef, {
       status,
     });
+    console.log(
+  "Sending email to:",
+  appointment.email
+);
+if (status === "Confirmed") {
+  await emailjs.send(
+    "service_sf0x5wd",
+    "template_yzdgver",
+    {
+      name: appointment.name,
+      service: appointment.service,
+      date: appointment.date,
+      time: appointment.time,
+      status: "Confirmed",
+      message:
+        "We look forward to seeing you at your appointment."
+    },
+    "K6mGCr-OMlqeuM_T7"
+  );
+}
+
+if (status === "Cancelled") {
+  await emailjs.send(
+    "service_sf0x5wd",
+    "template_yzdgver",
+    {
+      name: appointment.name,
+      service: appointment.service,
+      date: appointment.date,
+      time: appointment.time,
+      status: "Cancelled",
+      message:
+        "Please contact us if you would like to reschedule."
+    },
+    "K6mGCr-OMlqeuM_T7"
+  );
+}
 
     setAppointments((prev) =>
       prev.map((appointment) =>
         appointment.id === id
-          ? { ...appointment, status }
+          ? {
+              ...appointment,
+              status,
+            }
           : appointment
       )
     );
