@@ -1,8 +1,15 @@
 "use client";
 
 import { useState } from "react";
+import emailjs from "@emailjs/browser";
 import { useRouter } from "next/navigation";
-import { collection, addDoc } from "firebase/firestore";
+import {
+  collection,
+  addDoc,
+  query,
+  where,
+  getDocs,
+} from "firebase/firestore";
 import { db } from "../../firebase/config";
 import Navbar from "../components/Navbar";
 
@@ -19,7 +26,55 @@ const [notes, setNotes] = useState("");
 const handleSubmit = async (e: React.FormEvent) => {
   e.preventDefault();
 
+  // Email validation
+if (!/\S+@\S+\.\S+/.test(email)) {
+  alert("Please enter a valid email address.");
+  return;
+}
+
+// Philippine mobile validation
+if (!/^09\d{9}$/.test(phone)) {
+  alert("Please enter a valid phone number.");
+  return;
+}
+
+const confirmed = window.confirm(
+  `Confirm Appointment?\n\n` +
+  `Name: ${name}\n` +
+  `Service: ${service}\n` +
+  `Date: ${date}\n` +
+  `Time: ${time}`
+);
+
+if (!confirmed) return;
+
   try {
+    const existingAppointmentQuery = query(
+      collection(db, "appointments"),
+      where("date", "==", date),
+      where("time", "==", time)
+    );
+
+    const existingAppointment =
+      await getDocs(existingAppointmentQuery);
+
+    const taken =
+      existingAppointment.docs.some((doc) => {
+        const data = doc.data();
+
+        return (
+          data.status === "Pending" ||
+          data.status === "Confirmed"
+        );
+      });
+
+    if (taken) {
+      alert(
+        "This date and time is already booked."
+      );
+      return;
+    }
+
     await addDoc(collection(db, "appointments"), {
       name,
       email,
@@ -31,11 +86,30 @@ const handleSubmit = async (e: React.FormEvent) => {
       createdAt: new Date(),
       status: "Pending",
     });
+    await emailjs.send(
+  "service_sf0x5wd",
+  "template_wzz5zzd",
+  {
+    name,
+    email,
+    service,
+    date,
+    time,
+  },
+  "K6mGCr-OMlqeuM_T7"
+);
 
     router.push("/appointment/success");
+
   } catch (error) {
-    console.error("Error saving appointment:", error);
-    alert("Failed to submit appointment.");
+    console.error(
+      "Error saving appointment:",
+      error
+    );
+
+    alert(
+      "Failed to submit appointment."
+    );
   }
 };
   return (
