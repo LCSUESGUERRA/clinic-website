@@ -62,6 +62,7 @@ if (status === "Confirmed") {
     "template_yzdgver",
     {
       name: appointment.name,
+      email: appointment.email,
       service: appointment.service,
       date: appointment.date,
       time: appointment.time,
@@ -79,6 +80,7 @@ if (status === "Cancelled") {
     "template_yzdgver",
     {
       name: appointment.name,
+      email: appointment.email,
       service: appointment.service,
       date: appointment.date,
       time: appointment.time,
