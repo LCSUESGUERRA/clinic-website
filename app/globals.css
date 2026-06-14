@@ -25,3 +25,110 @@ h6 {
 body {
   font-family: var(--font-inter);
 }
+
+
+@keyframes floatSlow {
+  0% {
+    transform: translate(0px, 0px) scale(1);
+  }
+
+  25% {
+    transform: translate(80px, -60px) scale(1.08);
+  }
+
+  50% {
+    transform: translate(140px, -120px) scale(1.15);
+  }
+
+  75% {
+    transform: translate(70px, -50px) scale(1.08);
+  }
+
+  100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+}
+
+@keyframes floatSlowReverse {
+  0% {
+    transform: translate(0px, 0px) scale(1);
+  }
+
+  25% {
+    transform: translate(-80px, 60px) scale(1.08);
+  }
+
+  50% {
+    transform: translate(-140px, 120px) scale(1.15);
+  }
+
+  75% {
+    transform: translate(-70px, 50px) scale(1.08);
+  }
+
+  100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+}
+
+.animate-float {
+  animation: floatSlow 10s ease-in-out infinite;
+}
+
+.animate-float-reverse {
+  animation: floatSlowReverse 12s ease-in-out infinite;
+}
+
+@keyframes driftOne {
+  0% {
+    transform: translate(0,0);
+  }
+
+  50% {
+    transform: translate(-300px,200px);
+  }
+
+  100% {
+    transform: translate(0,0);
+  }
+}
+
+@keyframes driftTwo {
+  0% {
+    transform: translate(0,0);
+  }
+
+  50% {
+    transform: translate(300px,-200px);
+  }
+
+  100% {
+    transform: translate(0,0);
+  }
+}
+
+@keyframes driftThree {
+  0% {
+    transform: translate(0,0);
+  }
+
+  50% {
+    transform: translate(250px,-250px);
+  }
+
+  100% {
+    transform: translate(0,0);
+  }
+}
+
+.animate-drift-one {
+  animation: driftOne 18s ease-in-out infinite;
+}
+
+.animate-drift-two {
+  animation: driftTwo 22s ease-in-out infinite;
+}
+
+.animate-drift-three {
+  animation: driftThree 15s ease-in-out infinite;
+}

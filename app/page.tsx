@@ -3,12 +3,13 @@ import Navbar from "./components/Navbar";
 import { FaFacebookF, FaInstagram, FaTiktok } from "react-icons/fa";
 import Link from "next/link";
 
+
 export default function Home() {
   return (
     <main>
       <Navbar />
 
-      <section className="relative py-40 overflow-hidden bg-white">
+      <section className="relative py-40 overflow-hidden bg-transparent">
 
   {/* Your Existing Background Effects */}
   <div className="absolute top-20 right-20 w-96 h-96 bg-[#e9ddc8] rounded-full blur-3xl opacity-50"></div>
@@ -48,7 +49,7 @@ export default function Home() {
   </div>
 
   {/* Hero Image */}
-  <div className="relative w-full h-[500px] md:h-[800px] overflow-hidden">
+  <div className="relative w-full h-[500px] md:h-[800px] overflow-hidden -mt-10">
 
   <Image
     src="/images/hero.jpg"
@@ -59,16 +60,16 @@ export default function Home() {
   />
 
   {/* Top fade */}
-  <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-white via-white/60 to-transparent"></div>
+<div className="absolute top-0 left-0 w-full h-12 bg-gradient-to-b from-[#f8f5f0]/80 to-transparent z-10" />
 
-  {/* Left fade */}
-  <div className="absolute left-0 top-0 h-full w-40 bg-gradient-to-r from-white/70 to-transparent"></div>
+{/* Left fade */}
+<div className="absolute left-0 top-0 h-full w-12 bg-gradient-to-r from-[#f8f5f0]/80 to-transparent z-10" />
 
-  {/* Right fade */}
-  <div className="absolute right-0 top-0 h-full w-40 bg-gradient-to-l from-white/70 to-transparent"></div>
+{/* Right fade */}
+<div className="absolute right-0 top-0 h-full w-12 bg-gradient-to-l from-[#f8f5f0]/80 to-transparent z-10" />
 
-  {/* Very subtle bottom fade */}
-  <div className="absolute bottom-0 left-0 w-full h-20 bg-gradient-to-t from-white to-transparent"></div>
+{/* Bottom fade */}
+<div className="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-[#f8f5f0] via-[#f8f5f0]/50 to-transparent z-10" />
 
   </div>
 
@@ -408,82 +409,6 @@ export default function Home() {
 
 </div>
 </section>
-<footer className="bg-black text-white py-16">
-  <div className="max-w-7xl mx-auto px-8">
-
-    <div className="grid md:grid-cols-3 gap-12">
-
-      <div>
-        <h3 className="text-2xl font-bold mb-4">
-          AESTHETIC CLINIC
-        </h3>
-
-        <p className="text-gray-400">
-          Premium aesthetic treatments designed to help you look and feel your best.
-        </p>
-      </div>
-
-      <div>
-        <h4 className="font-semibold mb-4">
-          Quick Links
-        </h4>
-
-        <div className="flex flex-col gap-2 text-gray-400">
-          <a href="#">About</a>
-          <a href="#">Services</a>
-          <a href="#">Doctors</a>
-          <a href="#">Contact</a>
-        </div>
-      </div>
-
-      <div>
-  <h4 className="font-semibold mb-4">
-    Contact
-  </h4>
-
-  <p className="text-gray-400 mb-2">
-    clinic@email.com
-  </p>
-
-  <p className="text-gray-400 mb-6">
-    +63 912 345 6789
-  </p>
-
-  <h4 className="font-semibold mb-4">
-    Follow Us
-  </h4>
-
-<div className="flex flex-col gap-3 text-gray-400">
-
-  <a
-    href="https://www.facebook.com/leeon.esguerra.948"
-    className="flex items-center gap-3 hover:text-white transition"
-  >
-    <FaFacebookF />
-    Facebook
-  </a>
-
-  <a
-    href="https://www.instagram.com/leeonesguerra/"
-    className="flex items-center gap-3 hover:text-white transition"
-  >
-    <FaInstagram />
-    Instagram
-  </a>
-
-  <a
-    href="#"
-    className="flex items-center gap-3 hover:text-white transition"
-  >
-    <FaTiktok />
-    TikTok
-  </a>
-
-</div>
-  </div>
-</div>
-  </div>
-</footer>
     </main>
   );
 }

@@ -154,5 +154,6 @@ export default function AboutPage() {
       </section>
 
     </main>
+    
   );
 }

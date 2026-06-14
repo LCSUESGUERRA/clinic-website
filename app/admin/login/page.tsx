@@ -4,6 +4,8 @@ import { useState } from "react";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../../firebase/config";
 import { useRouter } from "next/navigation";
+import { onAuthStateChanged } from "firebase/auth";
+
 
 export default function AdminLoginPage() {
   const router = useRouter();
