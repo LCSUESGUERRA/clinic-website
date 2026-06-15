@@ -137,17 +137,19 @@ if (!confirmed) return;
     
     try {
   const result = await emailjs.send(
-    "service_sf0x5wd",
-    "template_wzz5zzd",
-    {
-      name,
-      email,
-      service,
-      date,
-      time,
-    },
-    "K6mGCr-OMlqeuM_T7"
-  );
+  "service_sf0x5wd",
+  "template_wzz5zzd",
+  {
+    name,
+    email,
+    service,
+    date,
+    time,
+  },
+  "K6mGCr-OMlqeuM_T7"
+);
+
+console.log("EmailJS Result:", result);
 
   console.log("Email success:", result);
 } catch (err) {
