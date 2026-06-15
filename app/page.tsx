@@ -344,12 +344,12 @@ export default function Home() {
     <img
       src="/images/gallery1.jpg"
       alt="Skin Rejuvenation"
-      className="w-full h-[300px] object-cover"
+      className="w-full h-[180px] sm:h-[220px] md:h-[300px] object-cover"
     />
 
-    <div className="p-6 text-center">
+    <div className="p-4 md:p-6 text-center">
 
-      <h3 className="text-2xl font-semibold mb-3">
+      <h3 className="text-xl md:text-2xl font-semibold mb-2 md:mb-3">
         Skin Rejuvenation
       </h3>
 
@@ -367,12 +367,11 @@ export default function Home() {
     <img
       src="/images/gallery1.jpg"
       alt="Laser Treatment"
-      className="w-full h-[300px] object-cover"
+      className="w-full h-[180px] sm:h-[220px] md:h-[300px] object-cover"
     />
 
-    <div className="p-6 text-center">
-
-      <h3 className="text-2xl font-semibold mb-3">
+    <div className="p-4 md:p-6 text-center">
+      <h3 className="text-xl md:text-2xl font-semibold mb-2 md:mb-3">
         Laser Treatment
       </h3>
 
@@ -390,12 +389,12 @@ export default function Home() {
     <img
       src="/images/gallery1.jpg"
       alt="Acne Scar Treatment"
-      className="w-full h-[300px] object-cover"
+      className="w-full h-[180px] sm:h-[220px] md:h-[300px] object-cover"
     />
 
-    <div className="p-6 text-center">
+    <div className="p-4 md:p-6 text-center">
 
-      <h3 className="text-2xl font-semibold mb-3">
+      <h3 className="text-xl md:text-2xl font-semibold mb-2 md:mb-3">
         Acne Scar Treatment
       </h3>
 
