@@ -336,7 +336,7 @@ export default function Home() {
   Before & After Results
 </h2>
 
-<div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+<div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto px-4 md:px-0">
 
   {/* Card 1 */}
   <div className="bg-white rounded-3xl overflow-hidden shadow-lg hover:-translate-y-2 hover:shadow-xl transition duration-300">
