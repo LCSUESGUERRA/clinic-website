@@ -1,5 +1,7 @@
 "use client";
 
+import Calendar from "react-calendar";
+import "react-calendar/dist/Calendar.css";
 import { useEffect, useState } from "react";
 import emailjs from "@emailjs/browser";
 import {
@@ -29,6 +31,7 @@ export default function AdminPage() {
 };
   const [appointments, setAppointments] = useState<any[]>([]);
   const [searchTerm, setSearchTerm] = useState("");
+  const [selectedDate, setSelectedDate] = useState<Date | null>(null);
   const router = useRouter();
 
 const [loading, setLoading] = useState(true);
@@ -220,6 +223,18 @@ useEffect(() => {
       ?.toLowerCase()
       .includes(searchTerm.toLowerCase())
   );
+  const calendarAppointments = selectedDate
+  ? appointments.filter((appointment) => {
+      const appointmentDate = new Date(
+        appointment.date
+      ).toDateString();
+
+      return (
+        appointmentDate ===
+        selectedDate.toDateString()
+      );
+    })
+  : appointments;
 if (loading) {
   return (
     <div className="p-10">
@@ -341,7 +356,20 @@ if (loading) {
     }
     className="w-full bg-white rounded-2xl px-5 py-4 shadow-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-black"
   />
+<div className="bg-white rounded-3xl shadow-lg p-6 mb-8">
 
+  <h2 className="text-2xl font-bold mb-4">
+    Appointment Calendar
+  </h2>
+
+  <Calendar
+    onChange={(value) =>
+      setSelectedDate(value as Date)
+    }
+    value={selectedDate}
+  />
+
+</div>
 </div>
       <div className="bg-white rounded-3xl shadow-lg overflow-hidden">
   <div className="overflow-x-auto">
@@ -379,7 +407,21 @@ if (loading) {
 
   ) : (
 
-    filteredAppointments.map((appointment) => (
+    calendarAppointments
+  .filter((appointment) =>
+    appointment.name
+      ?.toLowerCase()
+      .includes(searchTerm.toLowerCase()) ||
+
+    appointment.email
+      ?.toLowerCase()
+      .includes(searchTerm.toLowerCase()) ||
+
+    appointment.phone
+      ?.toLowerCase()
+      .includes(searchTerm.toLowerCase())
+  )
+  .map((appointment) => (
 
       <tr
         key={appointment.id}

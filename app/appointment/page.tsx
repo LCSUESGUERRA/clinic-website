@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import emailjs from "@emailjs/browser";
 import { useRouter } from "next/navigation";
 import {
@@ -23,6 +23,54 @@ const [service, setService] = useState("Consultation");
 const [date, setDate] = useState("");
 const [time, setTime] = useState("");
 const [notes, setNotes] = useState("");
+const [bookedTimes, setBookedTimes] = useState<string[]>([]);
+
+const availableTimes = [
+  "09:00",
+  "10:00",
+  "11:00",
+  "12:00",
+  "13:00",
+  "14:00",
+  "15:00",
+  "16:00",
+  "17:00",
+];
+useEffect(() => {
+  const fetchBookedTimes = async () => {
+    if (!date) {
+      setBookedTimes([]);
+      return;
+    }
+
+    try {
+      const q = query(
+        collection(db, "appointments"),
+        where("date", "==", date)
+      );
+
+      const snapshot = await getDocs(q);
+
+      const booked = snapshot.docs
+        .filter((doc) => {
+          const data = doc.data();
+
+          return (
+            data.status === "Pending" ||
+            data.status === "Confirmed"
+          );
+        })
+        .map((doc) => doc.data().time);
+
+      setBookedTimes(booked);
+    } catch (error) {
+      console.error("Error fetching booked times:", error);
+    }
+  };
+
+  fetchBookedTimes();
+}, [date]);
+
 const handleSubmit = async (e: React.FormEvent) => {
   e.preventDefault();
 
@@ -86,7 +134,29 @@ if (!confirmed) return;
       createdAt: new Date(),
       status: "Pending",
     });
-    await emailjs.send(
+    
+    try {
+  const result = await emailjs.send(
+    "service_sf0x5wd",
+    "template_wzz5zzd",
+    {
+      name,
+      email,
+      service,
+      date,
+      time,
+    },
+    "K6mGCr-OMlqeuM_T7"
+  );
+
+  console.log("Email success:", result);
+} catch (err) {
+  console.error("EmailJS error:", err);
+}
+
+console.log("Sending email...");
+
+const result = await emailjs.send(
   "service_sf0x5wd",
   "template_wzz5zzd",
   {
@@ -98,6 +168,8 @@ if (!confirmed) return;
   },
   "K6mGCr-OMlqeuM_T7"
 );
+
+console.log("Email sent:", result);
 
     router.push("/appointment/success");
 
@@ -214,28 +286,45 @@ if (!confirmed) return;
   type="date"
   required
   value={date}
-  onChange={(e) => setDate(e.target.value)}
+  onChange={(e) => {
+  setDate(e.target.value);
+  setTime("");
+}}
   min={new Date().toISOString().split("T")[0]}
   className="w-full border border-gray-300 rounded-xl px-4 py-3"
 />
               </div>
 
               <div>
-                <label className="block mb-2 font-medium">
-                  Preferred Time
-                </label>
+  <label className="block mb-2 font-medium">
+    Preferred Time
+  </label>
 
-                <input
-  type="time"
-  required
-  value={time}
-  onChange={(e) => setTime(e.target.value)}
-  className="w-full border border-gray-300 rounded-xl px-4 py-3"
-/>
-                <p className="text-sm text-gray-500 mt-2">
-  Available Monday - Saturday, 9:00 AM - 6:00 PM
-</p>
-              </div>
+  <select
+    required
+    value={time}
+    onChange={(e) => setTime(e.target.value)}
+    className="w-full border border-gray-300 rounded-xl px-4 py-3"
+  >
+    <option value="">Select Time</option>
+
+    {availableTimes.map((slot) => (
+      <option
+        key={slot}
+        value={slot}
+        disabled={bookedTimes.includes(slot)}
+      >
+        {bookedTimes.includes(slot)
+          ? `${slot} (Booked)`
+          : slot}
+      </option>
+    ))}
+  </select>
+
+  <p className="text-sm text-gray-500 mt-2">
+    Available Monday - Saturday, 9:00 AM - 6:00 PM
+  </p>
+</div>
 
               <div>
                 <label className="block mb-2 font-medium">

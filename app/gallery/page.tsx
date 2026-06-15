@@ -113,42 +113,44 @@ export default function GalleryPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
 
-            {filteredImages.map((item, index) => (
+         {filteredImages.map((item, index) => (
 
-              <div
-                key={index}
-                className="relative overflow-hidden rounded-3xl shadow-lg group"
-              >
+  <div
+    key={index}
+   className={`relative overflow-hidden rounded-3xl shadow-lg group ${
+  item.large
+    ? "h-[500px]"
+    : "h-[350px]"
+} ${
+  index === 3
+    ? "-mt-37"
+    : ""
+}`}
+  >
 
-                <img
-                  src={item.image}
-                  alt={item.title}
-                  className={`w-full object-cover group-hover:scale-110 transition duration-500
-                    ${
-                      item.large
-                        ? "h-[500px]"
-                        : "h-[350px]"
-                    }
-                  `}
-                />
+    <img
+      src={item.image}
+      alt={item.title}
+      className="w-full h-full object-cover group-hover:scale-110 transition duration-500"
+    />
 
-                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition"></div>
+    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
 
-                <div className="absolute bottom-6 left-6 text-white">
+    <div className="absolute bottom-6 left-6 text-white z-10">
 
-                  <h3 className="text-2xl font-bold">
-                    {item.title}
-                  </h3>
+      <h3 className="text-2xl font-bold">
+        {item.title}
+      </h3>
 
-                  <p className="text-sm">
-                    {item.subtitle}
-                  </p>
+      <p className="text-sm text-gray-200">
+        {item.subtitle}
+      </p>
 
-                </div>
+    </div>
 
-              </div>
+  </div>
 
-            ))}
+))}
 
           </div>
 
@@ -157,55 +159,61 @@ export default function GalleryPage() {
       </section>
 
       {/* Statistics */}
-      <section className="py-20 bg-white">
-
-        <div className="max-w-6xl mx-auto px-8">
+      <section
+  className="relative py-24 overflow-hidden"
+  style={{
+    backgroundImage: "url('/images/hero.jpg')",
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+  }}
+>
+<div className="absolute inset-0 bg-black/60"></div>
+        <div className="relative z-10 max-w-6xl mx-auto px-8">
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
 
-            <div className="bg-[#f8f5f0] rounded-3xl p-8 shadow-lg hover:-translate-y-2 hover:shadow-xl transition">
+            <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-8 shadow-lg hover:-translate-y-2 hover:shadow-xl transition">
 
-  <h2 className="text-5xl font-bold mb-2">
+  <h2 className="text-5xl font-bold mb-2 text-white">
     5K+
   </h2>
 
-  <p className="text-gray-600">
+  <p className="text-gray-200">
     Satisfied Clients
   </p>
 
 </div>
 
-            <div className="bg-[#f8f5f0] rounded-3xl p-8 shadow-lg hover:-translate-y-2 hover:shadow-xl transition">
+            <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-8 shadow-lg hover:-translate-y-2 hover:shadow-xl transition">
 
-  <h2 className="text-5xl font-bold mb-2">
+  <h2 className="text-5xl font-bold mb-2 text-white">
     10+
   </h2>
 
-  <p className="text-gray-600">
+  <p className="text-gray-200">
     Years of Experience
   </p>
 
 </div>
 
-            <div className="bg-[#f8f5f0] rounded-3xl p-8 shadow-lg hover:-translate-y-2 hover:shadow-xl transition">
-
-  <h2 className="text-5xl font-bold mb-2">
+            <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-8 shadow-lg hover:-translate-y-2 hover:shadow-xl transition">
+  <h2 className="text-5xl font-bold mb-2 text-white">
     15+
   </h2>
 
-  <p className="text-gray-600">
+  <p className="text-gray-200">
     Treatments offered
   </p>
 
 </div>
 
-            <div className="bg-[#f8f5f0] rounded-3xl p-8 shadow-lg hover:-translate-y-2 hover:shadow-xl transition">
+            <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-8 shadow-lg hover:-translate-y-2 hover:shadow-xl transition">
 
-  <h2 className="text-5xl font-bold mb-2">
+  <h2 className="text-5xl font-bold mb-2 text-white">
     99%
   </h2>
 
-  <p className="text-gray-600">
+  <p className="text-gray-200">
     Client Satisfaction
   </p>
 
@@ -216,18 +224,6 @@ export default function GalleryPage() {
         </div>
 
       </section>
-
-      <div className="flex items-center justify-center mb-16">
-
-  <div className="w-24 h-[1px] bg-gray-300"></div>
-
-  <span className="mx-6 uppercase tracking-[6px] text-sm text-gray-500">
-    Results
-  </span>
-
-  <div className="w-24 h-[1px] bg-gray-300"></div>
-
-</div>
 
       {/* Before & After */}
       <section className="py-24 bg-white">
