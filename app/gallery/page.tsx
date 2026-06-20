@@ -119,11 +119,11 @@ export default function GalleryPage() {
     key={index}
    className={`relative overflow-hidden rounded-3xl shadow-lg group ${
   item.large
-    ? "h-[500px]"
-    : "h-[350px]"
+    ? "h-[300px] md:h-[500px]"
+    : "h-[220px] md:h-[350px]"
 } ${
   index === 3
-    ? "-mt-37"
+    ? "md:-mt-24"
     : ""
 }`}
   >
